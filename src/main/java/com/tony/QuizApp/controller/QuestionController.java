@@ -20,9 +20,17 @@ public class QuestionController {
     }
 
     @GetMapping("category/{category}")
-    public List<Question> getQuestionByCategory(@PathVariable String category){
+    public List<Question> getQuestionByCategory(@PathVariable("category") String category){
         return questionService.getQuestionByCategory(category);
     }
+
+
+    @GetMapping("level/{category}/{level}")
+    public List<Question> getQuestionByCategory(@PathVariable("category") String category, @PathVariable("level") String level){
+        return questionService.getQuestionByCategoryAndDifficultyLevel(category,level);
+    }
+
+
 
     @PostMapping("add")
     public String addQuestion(@RequestBody Question question){
