@@ -1,4 +1,4 @@
-package com.tony.QuizApp;
+package com.tony.QuizApp.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -6,7 +6,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 
-import javax.annotation.processing.Generated;
 @Data
 @Entity
 public class Question {
