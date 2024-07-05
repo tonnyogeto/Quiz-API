@@ -21,7 +21,7 @@ public class QuizService {
     QuestionDao questionDao;
 
 
-    public ResponseEntity<String> createQuiz(String category, int numQ, String title) {
+    public ResponseEntity<String> createQuiz(String category, Integer numQ, String title) {
 
         List<Question> questions = questionDao.findRandomQuestionsByCategory(category,numQ);
 
