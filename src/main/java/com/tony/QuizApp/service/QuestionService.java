@@ -55,7 +55,4 @@ public class QuestionService {
         return "DELETED SUCCESSFULLY";
     }
 
-    public List<Question> getQuestionByCategoryAndDifficultyLevel(String category, String level) {
-        return questionDao.findByCategoryAndDifficultyLevel(category,level);
-    }
 }

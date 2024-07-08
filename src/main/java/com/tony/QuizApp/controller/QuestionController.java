@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/questions")
+@RequestMapping("questions")
 public class QuestionController {
     @Autowired
     QuestionService questionService;
 
-    @GetMapping("/allQuestions")
+    @GetMapping("allQuestions")
     public ResponseEntity<List<Question>> getAllQuestions() {
         return questionService.getAllQuestions();
     }
@@ -23,12 +23,6 @@ public class QuestionController {
     @GetMapping("category/{category}")
     public ResponseEntity<List<Question>> getQuestionByCategory(@PathVariable("category") String category){
         return questionService.getQuestionByCategory(category);
-    }
-
-
-    @GetMapping("level/{category}/{level}")
-    public List<Question> getQuestionByCategory(@PathVariable("category") String category, @PathVariable("level") String level){
-        return questionService.getQuestionByCategoryAndDifficultyLevel(category,level);
     }
 
 
