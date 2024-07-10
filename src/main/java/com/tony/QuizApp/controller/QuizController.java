@@ -1,6 +1,6 @@
 package com.tony.QuizApp.controller;
 
-import com.tony.QuizApp.model.QuestionWrapper;
+import com.tony.QuizApp.model.QuestionDTO;
 import com.tony.QuizApp.model.Response;
 import com.tony.QuizApp.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class QuizController{
         return quizService.createQuiz(category, numQ, title);
     }
     @GetMapping("get/{id}")
-    public ResponseEntity<List<QuestionWrapper>> getQuizQuestions(@PathVariable Integer id){
+    public ResponseEntity<List<QuestionDTO>> getQuizQuestions(@PathVariable Integer id){
         return quizService.getQuizQuestions(id);
     }
 

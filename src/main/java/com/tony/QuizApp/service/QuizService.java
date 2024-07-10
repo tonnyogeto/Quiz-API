@@ -3,7 +3,7 @@ package com.tony.QuizApp.service;
 import com.tony.QuizApp.dao.QuestionDao;
 import com.tony.QuizApp.dao.QuizDao;
 import com.tony.QuizApp.model.Question;
-import com.tony.QuizApp.model.QuestionWrapper;
+import com.tony.QuizApp.model.QuestionDTO;
 import com.tony.QuizApp.model.Quiz;
 import com.tony.QuizApp.model.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,12 +38,12 @@ public class QuizService {
 
     }
 
-    public ResponseEntity<List<QuestionWrapper>> getQuizQuestions(Integer id) {
+    public ResponseEntity<List<QuestionDTO>> getQuizQuestions(Integer id) {
         Optional<Quiz> quiz = quizDao.findById(id);
         List<Question> questionsFromDB = quiz.get().getQuestions();
-        List<QuestionWrapper> questionsForUser = new ArrayList<>();
+        List<QuestionDTO> questionsForUser = new ArrayList<>();
         for(Question q : questionsFromDB){
-            QuestionWrapper qw = new QuestionWrapper(q.getId(), q.getQuestionTitle(), q.getOption1(), q.getOption2(), q.getOption3(), q.getOption4());
+            QuestionDTO qw = new QuestionDTO(q.getId(), q.getQuestionTitle(), q.getOption1(), q.getOption2(), q.getOption3(), q.getOption4());
             questionsForUser.add(qw);
         }
 
