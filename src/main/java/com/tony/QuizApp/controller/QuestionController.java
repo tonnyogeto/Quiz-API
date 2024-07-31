@@ -10,27 +10,27 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("questions")
+@RequestMapping("api/questions")
 public class QuestionController {
     @Autowired
     QuestionService questionService;
 
-    @GetMapping("allQuestions")
+    @GetMapping
     public ResponseEntity<List<Question>> getAllQuestions() {
         return questionService.getAllQuestions();
     }
 
-    @GetMapping("category/{category}")
+    @GetMapping("/{category}")
     public ResponseEntity<List<Question>> getQuestionByCategory(@PathVariable("category") String category){
         return questionService.getQuestionByCategory(category);
     }
 
-    @PostMapping("add")
+    @PostMapping
     public ResponseEntity<String> addQuestion(@RequestBody Question question){
         return questionService.addQuestion(question);
     }
 
-    @PutMapping("{questionId}")
+    @PutMapping("/{questionId}")
     public String updateQuestion(
             @PathVariable("questionId") Integer questionId,
             @RequestBody Question question
@@ -38,7 +38,7 @@ public class QuestionController {
         return questionService.updateQuestion(question, questionId);
     }
 
-    @DeleteMapping("{questionId}")
+    @DeleteMapping("/{questionId}")
     public String deleteProduct(
             @PathVariable("questionId") Integer questionId
     ){
